@@ -93,6 +93,12 @@ extension ViewController: SPPermissionsDataSource, SPPermissionsDelegate {
      */
     func configure(_ cell: SPPermissionTableViewCell, for permission: SPPermission) -> SPPermissionTableViewCell {
         
+        if (permission == .swiftyDropbox) {
+            cell.set(UIImage(systemName: "square.and.arrow.up")!)
+            cell.button.allowTitle = "Connect"
+            cell.button.allowedTitle = "Connected"
+        }
+        
         /*
          // Titles
          cell.permissionTitleLabel.text = "Notifications"

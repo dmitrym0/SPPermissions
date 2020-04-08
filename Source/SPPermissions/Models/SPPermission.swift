@@ -43,6 +43,7 @@ import UIKit
     #endif
     case notification = 2
     case locationWhenInUse = 9
+    case swiftyDropbox = 99
     
     /**
      Check permission is allowed.
@@ -106,6 +107,8 @@ import UIKit
             return nil
         case .locationWhenInUse:
             return "NSLocationWhenInUseUsageDescription"
+        case .swiftyDropbox:
+            return nil
         }
     }
 }
@@ -197,6 +200,8 @@ extension SPPermission {
             #else
             fatalError(error(permission))
             #endif
+        case .swiftyDropbox:
+            return SPSwiftyDropboxPermission()
         }
     }
     

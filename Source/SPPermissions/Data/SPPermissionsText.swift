@@ -25,7 +25,7 @@ enum SPPermissionsText {
     
     static func name(for permission: SPPermission) -> String {
         switch permission {
-        #if os(iOS)
+            #if os(iOS)
         case .camera:
             return "Camera"
         case .photoLibrary:
@@ -53,6 +53,8 @@ enum SPPermissionsText {
             return "Notification"
         case .locationWhenInUse:
             return "Location When Use"
+        case .swiftyDropbox:
+            return "Dropbox Connection"
         }
     }
     
@@ -86,6 +88,8 @@ enum SPPermissionsText {
             return "Get important information without opening app."
         case .locationWhenInUse:
             return "Allow to access your location"
+        case .swiftyDropbox:
+            return "1Dropbox COnnection"
         }
     }
     

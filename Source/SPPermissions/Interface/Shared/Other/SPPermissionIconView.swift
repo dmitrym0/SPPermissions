@@ -79,7 +79,10 @@ public class SPPermissionIconView: UIView {
             SPPermissionsDraw.drawMedia(frame: rect, resizing: .aspectFit, color: color)
         case .bluetooth:
             SPPermissionsDraw.drawBluetooth(frame: rect, resizing: .aspectFit, color: color)
+        case .swiftyDropbox:
+            SPPermissionsDraw.drawBluetooth(frame: rect, resizing: .aspectFit, color: color)
         }
+        
     }
 }
 #endif
