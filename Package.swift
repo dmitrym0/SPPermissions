@@ -13,4 +13,7 @@ let package = Package(
     targets: [
         .target(name: "SPPermissions")
     ]
+    dependencies: [
+        .Package(url: "https://github.com/dropbox/SwiftyDropbox.git")
+    ]
 )
