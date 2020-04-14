@@ -21,11 +21,19 @@
 
 import UIKit
 import Foundation
+#if canImport(SwiftyDropbox)
+import SwiftyDropbox
+#endif
 
 struct SPSwiftyDropboxPermission: SPPermissionProtocol {
     
     var isAuthorized: Bool {
-        return true
+#if canImport(SwiftyDropbox)
+    return DropboxClientsManager.authorizedClient == nil
+#else
+    return false
+#endif
+      
     }
     
     var isDenied: Bool {
@@ -33,7 +41,19 @@ struct SPSwiftyDropboxPermission: SPPermissionProtocol {
     }
     
     func request(completion: @escaping ()->()?) {
+#if canImport(SwiftyDropbox)
+
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            DropboxClientsManager.authorizeFromController(UIApplication.shared,
+                                                          controller: rootViewController,
+                                                          openURL: { (url: URL) -> Void in
+                                                            UIApplication.shared.openURL(url)
+            })
+        }
         completion()
+#else
+        completion()
+#endif
     }
 }
 
