@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 import UIKit
+import SwiftyDropbox
 import SPPermissions
 
 class ViewController: UITableViewController {
@@ -47,6 +48,7 @@ class ViewController: UITableViewController {
         segmentedControl.selectedSegmentIndex = 0
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .play, target: self, action: #selector(self.requestPermissions))
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        DropboxClientsManager.setupWithAppKey("asdfadsf")
     }
     
     @objc func requestPermissions() {

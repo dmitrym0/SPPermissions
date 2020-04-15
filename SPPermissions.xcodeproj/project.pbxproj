@@ -641,7 +641,7 @@
 				F43F8D97236ECC9D00B94208 /* Sources */,
 				F43F8D98236ECC9D00B94208 /* Frameworks */,
 				F43F8D99236ECC9D00B94208 /* Resources */,
-				0A64992A24467ADC0037F19E /* ShellScript */,
+				0AFCB76D244689D600B1C1C5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -660,7 +660,7 @@
 				F4EA2640236ECE030070B2BA /* Frameworks */,
 				F4EA2641236ECE030070B2BA /* Resources */,
 				F499B1FB2380105200B83B08 /* Embed Frameworks */,
-				0A64992724467A4E0037F19E /* ShellScript */,
+				0AFCB76F24468DCD00B1C1C5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -754,26 +754,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A64992724467A4E0037F19E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyDropbox.framework\n",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-		0A64992A24467ADC0037F19E /* ShellScript */ = {
+		0AFCB76D244689D600B1C1C5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -791,6 +772,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+		0AFCB76F24468DCD00B1C1C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyDropbox.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

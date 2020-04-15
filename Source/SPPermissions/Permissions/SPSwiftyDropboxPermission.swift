@@ -26,7 +26,7 @@ import SwiftyDropbox
 struct SPSwiftyDropboxPermission: SPPermissionProtocol {
     
     var isAuthorized: Bool {
-        return DropboxClientsManager.authorizedClient == nil
+        return DropboxClientsManager.authorizedClient != nil
 
       
     }
@@ -37,14 +37,17 @@ struct SPSwiftyDropboxPermission: SPPermissionProtocol {
     
     func request(completion: @escaping ()->()?) {
 
-        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+        if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+            rootViewController.dismiss(animated: false, completion: nil)
             DropboxClientsManager.authorizeFromController(UIApplication.shared,
                                                           controller: rootViewController,
                                                           openURL: { (url: URL) -> Void in
                                                             UIApplication.shared.openURL(url)
             })
         }
-        completion()
+        SPPermissionsDelay.wait(5, closure: {
+            completion()
+        })
     }
 }
 
